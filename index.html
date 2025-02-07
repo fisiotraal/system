@@ -78,17 +78,6 @@
         .buttons button:hover {
             background-color: #218838;
         }
-
-        .error-message {
-            display: none;
-            background-color: #ff4d4d;
-            color: white;
-            padding: 20px;
-            text-align: center;
-            font-size: 1.5rem;
-            margin: 20px;
-            border-radius: 10px;
-        }
     </style>
 </head>
 <body>
@@ -111,10 +100,6 @@
         </div>
     </div>
 
-    <div class="error-message" id="error-message">
-        ERROR - No iniciaste sesión en <a href="https://fisiotraal.github.io/hub" style="color: yellow;">fisiotraal.github.io/hub/</a>
-    </div>
-
     <script>
         function updateDateTime() {
             const now = new Date();
@@ -127,16 +112,12 @@
         setInterval(updateDateTime, 1000);
         updateDateTime();
 
-        // Simulación de verificación de sesión
+        // Verificación de sesión
         function checkSession() {
             const sessionActive = sessionStorage.getItem('loggedIn');
 
             if (!sessionActive) {
-                const errorMessage = document.getElementById('error-message');
-                errorMessage.style.display = 'block';
-                setTimeout(() => {
-                    window.location.href = 'https://fisiotraal.github.io/hub/';
-                }, 10000);
+                window.location.href = 'https://fisiotraal.github.io/error/';
             }
         }
 
