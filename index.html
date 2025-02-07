@@ -8,6 +8,8 @@
         body {
             margin: 0;
             font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
         }
 
         .header {
@@ -18,9 +20,63 @@
             font-size: 2.5rem;
             font-weight: bold;
         }
+
+        .content {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 20px;
+        }
+
+        .datetime {
+            font-size: 1.2rem;
+            color: #333;
+        }
+
+        .buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .buttons button {
+            background-color: #28a745; /* Verde */
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 10px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .buttons button:hover {
+            background-color: #218838;
+        }
     </style>
 </head>
 <body>
     <div class="header">Fisiotraal System</div>
+    <div class="content">
+        <div class="datetime" id="datetime"></div>
+        <div class="buttons">
+            <button>Agenda</button>
+            <button>Promociones</button>
+            <button>Calendario</button>
+        </div>
+    </div>
+
+    <script>
+        function updateDateTime() {
+            const now = new Date();
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            const date = now.toLocaleDateString('es-ES', options);
+            const time = now.toLocaleTimeString('es-ES');
+            document.getElementById('datetime').textContent = `${date} - ${time}`;
+        }
+
+        setInterval(updateDateTime, 1000);
+        updateDateTime();
+    </script>
 </body>
 </html>
