@@ -31,16 +31,19 @@
         .header-button {
             background-color: transparent;
             border: none;
-            color: white;
-            font-size: 1rem;
             cursor: pointer;
-            padding: 10px 20px;
-            transition: background-color 0.3s ease;
+            padding: 0;
         }
 
-        .header-button:hover {
-            background-color: rgba(255, 255, 255, 0.2);
-            border-radius: 10px;
+        .header-button img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            transition: transform 0.3s ease;
+        }
+
+        .header-button img:hover {
+            transform: scale(1.1);
         }
 
         .content {
@@ -79,9 +82,13 @@
 </head>
 <body>
     <div class="header">
-        <button class="header-button" onclick="window.location.href='https://fisiotraal.github.io/hub'">Logo</button>
+        <button class="header-button" onclick="window.location.href='https://fisiotraal.github.io/hub'">
+            <img src="logo" alt="Logo">
+        </button>
         <div class="header-title">Fisiotraal System</div>
-        <button class="header-button" onclick="window.location.href='https://fisiotraal.github.io/user'">Usuario</button>
+        <button class="header-button" onclick="window.location.href='https://fisiotraal.github.io/user'">
+            <img src="user" alt="Usuario">
+        </button>
     </div>
 
     <div class="content">
